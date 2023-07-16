@@ -1,0 +1,20 @@
+{
+  "name": "bani-reader",
+  "version": "1.0.0",
+  "description": "Bani Reader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server --no-browser --port=8090"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tool-engines"
+  },
+  "author": "Charandeep Singh",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
