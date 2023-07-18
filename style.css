@@ -1,6 +1,10 @@
-:root {
+/* :root {
     --all-fs: 1.5rem;
     --input-fs: 1.2rem;
+}
+
+* {
+    border: 1px solid black;
 }
 
 .configSection {
@@ -38,6 +42,7 @@ button {
     position: fixed;
     bottom: 1px;
     display: flex;
+    display: none;
     justify-content: space-between;
     width: 100%;
     height: 5vh;
@@ -50,4 +55,62 @@ button {
 
 .height100 {
     height: 100%;
+} */
+#root {
+    /* border: 1px solid black; */
+}
+#bani {
+    /* border: 1px solid black; */
+    height: 80vh;
+    column-width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding: 1rem;
+    column-gap: 100px;
+    column-fill: auto;
+    margin: 0;
+}
+.config {
+    height: 5vh;
+    /* border: 1px solid black; */
+    display: flex;
+    padding: 0 1rem;
+}
+.config button {
+    width: 33.33%;
+    font-size: 1rem;
+    font-family: monospace;
+}
+
+.popD {
+    position: fixed;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    top: 0;
+    margin: 1rem
+}
+
+.popD > div {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-aspect-ratio: 0.6/1) {
+    .config button {
+        font-size: 3rem;
+    }
+    .popD {
+        font-size: 3rem;
+    }
+    .popD input {
+        min-width: 2rem;
+        min-height: 2rem;
+    }
+    .popD label {
+        margin-right: 1rem;
+    }
 }
