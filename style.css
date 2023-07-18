@@ -61,7 +61,7 @@ button {
 }
 #bani {
     /* border: 1px solid black; */
-    height: 80vh;
+    height: 85vh;
     column-width: 100vw;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -110,10 +110,12 @@ button {
         font-size: 4rem;
     }
     .popD {
-        font-size: 4rem;
+        font-size: 6rem;
     }
-    .popD input {
-        min-width: 3rem;
-        min-height: 3rem;
+    .popD input, button {
+        min-width: 5rem;
+        min-height: 5rem;
+        font-size: 3rem;
+        margin: 0 1rem;
     }
 }
