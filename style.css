@@ -97,20 +97,23 @@ button {
 .popD > div {
     display: flex;
     align-items: center;
+    padding: 0.3rem;
+    padding-right: 1.5rem;
+}
+
+.popD label {
+    margin-right: 1rem;
 }
 
 @media only screen and (max-aspect-ratio: 0.6/1) {
     .config button {
-        font-size: 3rem;
+        font-size: 4rem;
     }
     .popD {
-        font-size: 3rem;
+        font-size: 4rem;
     }
     .popD input {
-        min-width: 2rem;
-        min-height: 2rem;
-    }
-    .popD label {
-        margin-right: 1rem;
+        min-width: 3rem;
+        min-height: 3rem;
     }
 }
