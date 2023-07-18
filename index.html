@@ -325,9 +325,11 @@
             </div>
             <div>
                 <label>Font size:</label>
-                <button onpointerdown="continuousEmitterStart(decreaseFontSize)" onpointerup="continuousEmitterStop(decreaseFontSize)" onpointerleave="continuousEmitterStop(decreaseFontSize)">-</button>
-                <button onpointerdown="continuousEmitterStart(increaseFontSize)" onpointerup="continuousEmitterStop(increaseFontSize)" onpointerleave="continuousEmitterStop(increaseFontSize)">+</button>
-                <input id="currentFontSize" min="1" max="200" type="number" onchange="changeFontSize(event.target.value)">
+                <div class="col3">
+                  <button onpointerdown="continuousEmitterStart(decreaseFontSize)" onpointerup="continuousEmitterStop(decreaseFontSize)" onpointerleave="continuousEmitterStop(decreaseFontSize)">-</button>
+                  <button onpointerdown="continuousEmitterStart(increaseFontSize)" onpointerup="continuousEmitterStop(increaseFontSize)" onpointerleave="continuousEmitterStop(increaseFontSize)">+</button>
+                  <input id="currentFontSize" min="1" max="200" type="number" onchange="changeFontSize(event.target.value)">
+                </div>
             </div>
             <div>
                 <label>Scroll lock</label>

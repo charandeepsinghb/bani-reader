@@ -61,7 +61,7 @@ button {
 }
 #bani {
     /* border: 1px solid black; */
-    height: 85vh;
+    height: 80vh;
     column-width: 100vw;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -89,7 +89,7 @@ button {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0.5rem;
     top: 0;
     margin: 1rem
 }
@@ -102,20 +102,25 @@ button {
 }
 
 .popD label {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 }
 
 @media only screen and (max-aspect-ratio: 0.6/1) {
     .config button {
-        font-size: 4rem;
+        font-size: 1rem;
     }
     .popD {
-        font-size: 6rem;
+        font-size: 1rem;
     }
-    .popD input, button {
-        min-width: 5rem;
-        min-height: 5rem;
-        font-size: 3rem;
-        margin: 0 1rem;
+    .popD input, .popD button {
+        min-width: 1rem;
+        min-height: 1rem;
+        font-size: 1rem;
+        margin: 0 0.5rem;
     }
 }
+
+.col3 > * {
+  width: 20%;
+}
+
