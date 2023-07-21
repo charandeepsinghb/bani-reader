@@ -310,7 +310,7 @@
             Error dolor voluptates illum at id sit officia mollitia voluptate beatae ipsa, voluptatibus quas provident accusantium aliquam minima repudiandae quibusdam rerum quos dolorum commodi? Nesciunt fugit iste quo quibusdam necessitatibus!
             Cum laudantium quam ratione architecto. Alias ipsam at recusandae placeat. Cupiditate minima quaerat earum eaque ad doloremque reprehenderit iure placeat quasi. Inventore natus saepe dicta aliquam non molestiae omnis ipsa?
         </div>
-        <div class="popD">
+        <div class="popD" id="popUp">
             <div>
                 <label>Dark mode</label>
                 <input type="checkbox" onclick="darkMode(event.target.checked)">
@@ -337,9 +337,9 @@
             </div>
         </div>
         <div class="config">
-            <button class="botBott">...</button>
-            <button class="botBott">&lt;</button>
-            <button class="botBott">&gt;</button>
+            <button class="botBott" onclick="openCloseMenu()">...</button>
+            <button class="botBott" onclick="slidePrev()">&lt;</button>
+            <button class="botBott" onclick="slideNext()">&gt;</button>
         </div>
     </div>
 </body>
