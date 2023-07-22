@@ -1,81 +1,19 @@
-/* :root {
-    --all-fs: 1.5rem;
-    --input-fs: 1.2rem;
-}
-
-* {
-    border: 1px solid black;
-}
-
-.configSection {
-    margin-bottom: 10px;
-    position: fixed;
-    background-color: white;
-    border: 1px solid black;
-    padding: 5px;
-    border-radius: 5px;
-    display: none;
-    font-size: var(--all-fs);
-}
-
-#config input {
-    min-width: var(--input-fs);
-    min-height: var(--input-fs);
-}
-
 #bani {
-    overflow-y: hidden;
-    height: 95vh;
-}
-
-body {
-    overflow-y: hidden;
-}
-
-button {
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-.hideShowMenu {
-    position: fixed;
-    bottom: 1px;
-    display: flex;
-    display: none;
-    justify-content: space-between;
-    width: 100%;
-    height: 5vh;
-}
-
-.hideShowMenu button {
-    padding: 0 1rem;
-    font-size: var(--input-fs);
-}
-
-.height100 {
-    height: 100%;
-} */
-#root {
-    /* border: 1px solid black; */
-}
-#bani {
-    /* border: 1px solid black; */
     height: 80vh;
     column-width: 100vw;
     overflow-y: hidden;
     overflow-x: hidden;
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 0.5rem;
     column-gap: 2rem;
     column-fill: auto;
     margin: 0;
 }
 .config {
-    height: 5vh;
+    height: 10vh;
     /* border: 1px solid black; */
     display: flex;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
 }
 .config button {
     width: 33.33%;
@@ -91,7 +29,7 @@ button {
     flex-direction: column;
     padding: 0.5rem;
     top: 0;
-    margin: 1rem;
+    margin: 0.5rem;
     color: black;
 }
 
@@ -114,9 +52,16 @@ button {
         font-size: 1rem;
     }
     .popD input, .popD button {
-        min-width: 1rem;
+        min-width: 2rem;
         min-height: 1rem;
         font-size: 1rem;
         margin: 0 0.5rem;
     }
 }
+
+button {
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+

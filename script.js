@@ -30,11 +30,11 @@ function changeFontColor(value) {
 }
 
 function increaseFontSize() {
-    increaesDecreaseFontSize(0.2);
+    increaesDecreaseFontSize(0.5);
 }
 
 function decreaseFontSize() {
-    increaesDecreaseFontSize(-0.2);
+    increaesDecreaseFontSize(-0.5);
 }
 
 function increaesDecreaseFontSize(increaseDecreaseValue) {
@@ -76,7 +76,7 @@ let emitterInterv;
 function continuousEmitterStart(func) {
     emitterInterv = setInterval(() => {
         func()
-    }, 1);
+    }, 10);
 }
 
 // Stops event emitting when called
@@ -97,21 +97,27 @@ function extractNumberFromProperty(property) {
 function slideNext() {
     let computed = window.getComputedStyle(baniSection);
 
-    baniSection.scrollBy(extractNumberFromProperty(computed.width), 0);
+    baniSection.scrollBy(
+            extractNumberFromProperty(computed.width)
+            + extractNumberFromProperty(computed.padding) * 2
+            , 0);
 }
 
 function slidePrev() {
     let computed = window.getComputedStyle(baniSection);
 
-    baniSection.scrollBy(-extractNumberFromProperty(computed.width), 0);
+    baniSection.scrollBy(
+            -(extractNumberFromProperty(computed.width)
+            + extractNumberFromProperty(computed.padding) * 2)
+            , 0);
 }
 
-function hideShowOverlayButtons(isOn) {
-    if (!isOn) {
-        baniSection.style.overflowY = 'auto';
+function changeJustify(isOn) {
+    if (isOn) {
+        baniSection.style.textAlign = 'justify';
         return;
     }
-    baniSection.style.overflowY = 'hidden';
+    baniSection.style.textAlign = 'left';
 }
 
 function saveFontSizeInStorage(size) {
