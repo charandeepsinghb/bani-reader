@@ -1,7 +1,7 @@
 const MIN_FONT_SIZE = 1;
 const MAX_FONT_SIZE = 200;
 
-
+// Checks for font size in local storage
 let savedFontSize = localStorage.getItem('savedFontSize');
 
 let currentFontSize;
@@ -9,16 +9,19 @@ let numberFontSize;
 let baniSection;
 let optionsMenu;
 
-// Get current font size of bani section
 baniSection = document.getElementById("bani");
 optionsMenu = document.getElementById("popUp");
 
+// Get current font size of bani section
 currentFontSize = window.getComputedStyle(baniSection).getPropertyValue('font-size');
-numberFontSize = Number(currentFontSize.substring(0, currentFontSize.length - 2));
-setFontSize(numberFontSize);
+
+// Number format font size
+numberFontSize = Number.parseFloat(currentFontSize.substring(0, currentFontSize.length - 2));
+setFontSizeInputValue(numberFontSize);
+
 if (savedFontSize) {
     changeFontSize(savedFontSize);
-    setFontSize(savedFontSize);
+    setFontSizeInputValue(savedFontSize);
 }
 
 function changeBackgroundColor(value) {
@@ -43,22 +46,23 @@ function increaesDecreaseFontSize(increaseDecreaseValue) {
         return;
     }
     numberFontSize = newNumberFontSize;
-    setFontSize(numberFontSize);
+    setFontSizeInputValue(numberFontSize);
     baniSection.style.fontSize = numberFontSize + "px";
     saveFontSizeInStorage(numberFontSize);
 }
 
 // Change font size in input field
-function setFontSize(value) {
-    document.getElementById("currentFontSize").value = Number(value).toFixed(1);
+function setFontSizeInputValue(value) {
+    document.getElementById("currentFontSize").value = Number.parseFloat(value).toFixed(1);
 }
 
 function changeFontSize(size) {
     if (!isBetween(MIN_FONT_SIZE, MAX_FONT_SIZE, size)) {
         return;
     }
-    numberFontSize = Number(size);
+    numberFontSize = Number.parseFloat(size);
     baniSection.style.fontSize = size + 'px';
+    saveFontSizeInStorage(numberFontSize);
 }
 
 function darkMode(isOn) {
@@ -76,7 +80,7 @@ let emitterInterv;
 function continuousEmitterStart(func) {
     emitterInterv = setInterval(() => {
         func()
-    }, 10);
+    }, 100);
 }
 
 // Stops event emitting when called
@@ -91,7 +95,7 @@ function isBetween(first, second, num) {
 }
 
 function extractNumberFromProperty(property) {
-    return Number(property.substring(0, property.length - 2));
+    return Number.parseFloat(property.substring(0, property.length - 2));
 }
 
 function slideNext() {
