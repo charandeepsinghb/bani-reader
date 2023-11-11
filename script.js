@@ -36,11 +36,11 @@ function changeFontColor(value) {
 }
 
 function increaseFontSize() {
-    increaesDecreaseFontSize(0.5);
+    increaesDecreaseFontSize(0.2);
 }
 
 function decreaseFontSize() {
-    increaesDecreaseFontSize(-0.5);
+    increaesDecreaseFontSize(-0.2);
 }
 
 function increaesDecreaseFontSize(increaseDecreaseValue) {
@@ -161,11 +161,11 @@ function increaesDecreaseColumnWidth(increaseDecreaseValue) {
 }
 
 function increaseColumnWidth() {
-    increaesDecreaseColumnWidth(5);
+    increaesDecreaseColumnWidth(2);
 }
 
 function decreaseColumnWidth() {
-    increaesDecreaseColumnWidth(-5);
+    increaesDecreaseColumnWidth(-2);
 }
 
 
@@ -182,9 +182,9 @@ function increaesDecreaseWordSpace(increaseDecreaseValue) {
 }
 
 function increaseWordSpace() {
-    increaesDecreaseWordSpace(1);
+    increaesDecreaseWordSpace(0.5);
 }
 
 function decreaseWordSpace() {
-    increaesDecreaseWordSpace(-1);
+    increaesDecreaseWordSpace(-0.5);
 }

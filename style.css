@@ -45,7 +45,7 @@
     margin-right: 0.5rem;
 }
 
-@media only screen and (max-aspect-ratio: 0.6/1) {
+@media only screen and (max-aspect-ratio: 0.6/1), (max-width: 600px) {
     .config button {
         font-size: 1rem;
     }
@@ -54,7 +54,7 @@
     }
     .popD input, .popD button {
         min-width: 2rem;
-        min-height: 1rem;
+        min-height: 2rem;
         font-size: 1rem;
         margin: 0 0.5rem;
     }
