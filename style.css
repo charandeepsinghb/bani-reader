@@ -45,6 +45,18 @@
     margin-right: 0.5rem;
 }
 
+button {
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: all 20ms;
+}
+
+button:active {
+    transform: scale(0.9);
+    background-color: #999999;
+}
+
 @media only screen and (max-aspect-ratio: 0.6/1), (max-width: 600px) {
     .config button {
         font-size: 1rem;
@@ -58,11 +70,5 @@
         font-size: 1rem;
         margin: 0 0.5rem;
     }
-}
-
-button {
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
 }
 

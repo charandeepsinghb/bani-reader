@@ -95,6 +95,7 @@ function isBetween(first, second, num) {
     if (num >= first && num <= second) {
         return true;
     }
+    return false;
 }
 
 function extractNumberFromProperty(property) {
@@ -174,7 +175,6 @@ currentWordSpace.value = Number.parseFloat(window.getComputedStyle(baniSection).
 function increaesDecreaseWordSpace(increaseDecreaseValue) {
     let newNumberWordSpace = Number.parseFloat(currentWordSpace.value) + increaseDecreaseValue;
     if (!isBetween(0, MAX_SIZE, newNumberWordSpace)) {
-        setInputValue(newNumberWordSpace, 'currentWordSpace');
         return;
     }
     setInputValue(newNumberWordSpace, 'currentWordSpace');
