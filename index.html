@@ -9,7 +9,7 @@
 <body>
     <div id="root">
         <div id="bani">
-                ੴ ਸਤਿ ਨਾਮੁ ਕਰਤਾ ਪੁਰਖੁ ਨਿਰਭਉ ਨਿਰਵੈਰੁ ਅਕਾਲ ਮੂਰਤਿ ਅਜੂਨੀ ਸੈਭੰ ਗੁਰ ਪ੍ਰਸਾਦਿ॥<br>
+            ੴ ਸਤਿ ਨਾਮੁ ਕਰਤਾ ਪੁਰਖੁ ਨਿਰਭਉ ਨਿਰਵੈਰੁ ਅਕਾਲ ਮੂਰਤਿ ਅਜੂਨੀ ਸੈਭੰ ਗੁਰ ਪ੍ਰਸਾਦਿ॥<br>
             ॥ ਜਪੁ॥<br>
             ਆਦਿ ਸਚੁ ਜੁਗਾਦਿ ਸਚੁ॥ ਹੈ ਭੀ ਸਚੁ ਨਾਨਕ ਹੋਸੀ ਭੀ ਸਚੁ॥ ੧॥<br>ਸੋਚੈ ਸੋਚਿ ਨ ਹੋਵਈ ਜੇ ਸੋਚੀ ਲਖ ਵਾਰ॥ ਚੁਪੈ ਚੁਪ ਨ
             ਹੋਵਈ ਜੇ ਲਾਇ ਰਹਾ ਲਿਵ ਤਾਰ॥ ਭੁਖਿਆ ਭੁਖ ਨ ਉਤਰੀ ਜੇ ਬੰਨਾ ਪੁਰੀਆ ਭਾਰ॥ ਸਹਸ ਸਿਆਣਪਾ ਲਖ ਹੋਹਿ
@@ -164,9 +164,14 @@
             <div>
                 <label>Font size:</label>
                 <div>
-                  <button onpointerdown="continuousEmitterStart(decreaseFontSize, 20)" onpointerup="continuousEmitterStop(decreaseFontSize)" onpointerleave="continuousEmitterStop(decreaseFontSize)">-</button>
-                  <button onpointerdown="continuousEmitterStart(increaseFontSize, 20)" onpointerup="continuousEmitterStop(increaseFontSize)" onpointerleave="continuousEmitterStop(increaseFontSize)">+</button>
-                  <input id="currentFontSize" min="1" max="200" type="number" onchange="changeInput(event.target.value, changeFontSize)">
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseFontSize, -0.2, 20)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseFontSize)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseFontSize)">-</button>
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseFontSize, 0.2, 20)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseFontSize)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseFontSize)">+</button>
+                    <input id="currentFontSize" min="1" max="200" type="number" 
+                            onchange="changeInput(event.target.value, changeFontSize)">
                 </div>
             </div>
             <div>
@@ -176,24 +181,33 @@
             <div>
                 <label>Word space:</label>
                 <div>
-                    <button onpointerdown="continuousEmitterStart(decreaseWordSpace, 20)" onpointerup="continuousEmitterStop(decreaseWordSpace)" onpointerleave="continuousEmitterStop(decreaseWordSpace)">-</button>
-                    <button onpointerdown="continuousEmitterStart(increaseWordSpace, 20)" onpointerup="continuousEmitterStop(increaseWordSpace)" onpointerleave="continuousEmitterStop(increaseWordSpace)">+</button>
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseWordSpace, -0.2, 20)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseWordSpace)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseWordSpace)">-</button>
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseWordSpace, 0.2, 20)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseWordSpace)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseWordSpace)">+</button>
                     <input id="currentWordSpace" min="0" max="100" type="number" readonly style="background-color: #efefef;">
                 </div>
             </div>
             <div>
                 <label>Column width:</label>
                 <div>
-                    <button onpointerdown="continuousEmitterStart(decreaseColumnWidth, 20)" onpointerup="continuousEmitterStop(decreaseColumnWidth)" onpointerleave="continuousEmitterStop(decreaseColumnWidth)">-</button>
-                    <button onpointerdown="continuousEmitterStart(increaseColumnWidth, 20)" onpointerup="continuousEmitterStop(increaseColumnWidth)" onpointerleave="continuousEmitterStop(increaseColumnWidth)">+</button>
-                    <input id="currentColumnWidth" min="1" max="100" type="number" value="100" onchange="changeInput(event.target.value, changeColumnWidth)">
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseColumnWidth, -2, 20)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseColumnWidth)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseColumnWidth)">-</button>
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseColumnWidth, 2, 20)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseColumnWidth)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseColumnWidth)">+</button>
+                    <input id="currentColumnWidth" min="1" max="100" type="number" value="100" 
+                            onchange="changeInput(event.target.value, changeColumnWidth)">
                 </div>
             </div>
         </div>
-        <div class="config">
-            <button class="botBott" onclick="openCloseMenu()">...</button>
-            <button class="botBott" onclick="slidePrev()">&lt;</button>
-            <button class="botBott" onclick="slideNext()">&gt;</button>
+        <div class="configBottom">
+            <button onclick="openCloseMenu()">...</button>
+            <button onclick="slideNextPrev('prev')">&lt;</button>
+            <button onclick="slideNextPrev('next')">&gt;</button>
         </div>
     </div>
 </body>

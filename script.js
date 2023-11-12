@@ -35,14 +35,6 @@ function changeFontColor(value) {
     document.body.style.color = value;
 }
 
-function increaseFontSize() {
-    increaesDecreaseFontSize(0.2);
-}
-
-function decreaseFontSize() {
-    increaesDecreaseFontSize(-0.2);
-}
-
 function increaesDecreaseFontSize(increaseDecreaseValue) {
     let newNumberFontSize = numberFontSize + increaseDecreaseValue;
     if (!isBetween(MIN_SIZE, MAX_SIZE, numberFontSize)) {
@@ -80,9 +72,9 @@ function darkMode(isOn) {
 
 // Emit multiple events when called continuously
 let emitterInterv;
-function continuousEmitterStart(func, time) {
+function continuousEmitterStart(func, params, time) {
     emitterInterv = setInterval(() => {
-        func()
+        func(params)
     }, time);
 }
 
@@ -102,18 +94,17 @@ function extractNumberFromProperty(property) {
     return Number.parseFloat(property.substring(0, property.length - 2));
 }
 
-function slideNext() {
+function slideNextPrev(direction) {
     let computed = window.getComputedStyle(baniSection);
 
-    baniSection.scrollBy(
-            extractNumberFromProperty(computed.width)
-            + extractNumberFromProperty(computed.padding) * 2
-            , 0);
-}
-
-function slidePrev() {
-    let computed = window.getComputedStyle(baniSection);
-
+    if (direction === "next") {
+        baniSection.scrollBy(
+                extractNumberFromProperty(computed.width)
+                + extractNumberFromProperty(computed.padding) * 2
+                , 0);
+        
+        return;
+    }
     baniSection.scrollBy(
             -(extractNumberFromProperty(computed.width)
             + extractNumberFromProperty(computed.padding) * 2)
@@ -161,15 +152,6 @@ function increaesDecreaseColumnWidth(increaseDecreaseValue) {
     baniSection.style.columnWidth = newNumberColumnWidth + "vw";
 }
 
-function increaseColumnWidth() {
-    increaesDecreaseColumnWidth(2);
-}
-
-function decreaseColumnWidth() {
-    increaesDecreaseColumnWidth(-2);
-}
-
-
 currentWordSpace.value = Number.parseFloat(window.getComputedStyle(baniSection).getPropertyValue('word-spacing'));
 
 function increaesDecreaseWordSpace(increaseDecreaseValue) {
@@ -179,12 +161,4 @@ function increaesDecreaseWordSpace(increaseDecreaseValue) {
     }
     setInputValue(newNumberWordSpace, 'currentWordSpace');
     baniSection.style.wordSpacing = newNumberWordSpace + "px";
-}
-
-function increaseWordSpace() {
-    increaesDecreaseWordSpace(0.5);
-}
-
-function decreaseWordSpace() {
-    increaesDecreaseWordSpace(-0.5);
 }

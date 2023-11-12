@@ -10,13 +10,12 @@
     margin: 0;
     column-rule: 1px solid;
 }
-.config {
+.configBottom {
     height: 10vh;
-    /* border: 1px solid black; */
     display: flex;
     padding: 0 0.5rem;
 }
-.config button {
+.configBottom button {
     width: 33.33%;
     font-size: 1rem;
     font-family: monospace;
@@ -49,16 +48,14 @@ button {
     -ms-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    transition: all 20ms;
 }
 
 button:active {
-    transform: scale(0.9);
     background-color: #999999;
 }
 
 @media only screen and (max-aspect-ratio: 0.6/1), (max-width: 600px) {
-    .config button {
+    .configBottom button {
         font-size: 1rem;
     }
     .popD {
