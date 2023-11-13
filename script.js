@@ -76,23 +76,41 @@ function changeFontSize(size) {
 
 /*********************** Color themes *************************/
 
+const darkCheck = document.getElementById("darkCheck");
+
 function changeBackgroundColor(value) {
-    document.body.style.backgroundColor = value;
+    document.documentElement.style.setProperty('--background-color', value);
 }
 
 function changeFontColor(value) {
-    document.body.style.color = value;
+    document.documentElement.style.setProperty('--font-color', value);
 }
 
 function darkMode(isOn) {
     if (isOn) {
-        document.body.style.backgroundColor = "#000000"
-        document.body.style.color = "#ffffff";
+        document.documentElement.style.setProperty('--font-color', 'white');
+        document.documentElement.style.setProperty('--background-color', 'black');
         return;
     }
-    document.body.style.backgroundColor = "#ffffff"
-    document.body.style.color = "#000000";
+    
+    document.documentElement.style.setProperty('--font-color', 'black');
+    document.documentElement.style.setProperty('--background-color', 'white');
 }
+
+/*********************** Theme *************************/
+
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+
+// Theme change event listener
+darkThemeMq.addEventListener("change", e => {
+    if (e.matches) {
+        darkCheck.checked = true;
+        darkMode(true);
+    } else {
+        darkCheck.checked = false;
+        darkMode(false);
+    }
+});
 
 /*********************** Popup menu *************************/
 
