@@ -7,7 +7,7 @@ let optionsMenu = document.getElementById("popUp");
 /*********************** Commons *************************/
 
 function setInputValue(value, fieldId) {
-    document.getElementById(fieldId).value = Number.parseFloat(value).toFixed(1);
+    document.getElementById(fieldId).value = Number.parseFloat(value).toFixed(2);
 }
 
 // Emit multiple events when called continuously
@@ -163,4 +163,26 @@ function increaesDecreaseWordSpace(increaseDecreaseValue) {
     }
     setInputValue(newNumberWordSpace, 'currentWordSpace');
     baniSection.style.wordSpacing = newNumberWordSpace + "px";
+}
+
+/*********************** Line height *************************/
+
+let currentLineHeight = document.getElementById("currentLineHeight");
+
+currentLineHeight.value = Number.parseFloat(window.getComputedStyle(baniSection).getPropertyValue('line-height'));
+
+function increaesDecreaseLineHeight(increaseDecreaseValue) {
+    const NORMAL_LINE_HEIGHT = 1.2;
+    
+    let newNumberLineHeight;
+    if (!currentLineHeight.value) {
+        newNumberLineHeight = NORMAL_LINE_HEIGHT + increaseDecreaseValue;
+    } else {
+        newNumberLineHeight = Number.parseFloat(currentLineHeight.value) + increaseDecreaseValue;
+    }
+    if (!isBetween(NORMAL_LINE_HEIGHT, MAX_SIZE, newNumberLineHeight)) {
+        return;
+    }
+    setInputValue(newNumberLineHeight, 'currentLineHeight');
+    baniSection.style.lineHeight = newNumberLineHeight;
 }

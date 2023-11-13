@@ -181,13 +181,25 @@
             <div>
                 <label>Word space:</label>
                 <div>
-                    <button onpointerdown="continuousEmitterStart(increaesDecreaseWordSpace, -0.2, 20)" 
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseWordSpace, -0.25, 20)" 
                             onpointerup="continuousEmitterStop(increaesDecreaseWordSpace)" 
                             onpointerleave="continuousEmitterStop(increaesDecreaseWordSpace)">-</button>
-                    <button onpointerdown="continuousEmitterStart(increaesDecreaseWordSpace, 0.2, 20)" 
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseWordSpace, 0.25, 20)" 
                             onpointerup="continuousEmitterStop(increaesDecreaseWordSpace)" 
                             onpointerleave="continuousEmitterStop(increaesDecreaseWordSpace)">+</button>
                     <input id="currentWordSpace" min="0" max="100" type="number" readonly style="background-color: #efefef;">
+                </div>
+            </div>
+            <div>
+                <label>Line height:</label>
+                <div>
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseLineHeight, -0.01, 20)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseLineHeight)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseLineHeight)">-</button>
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseLineHeight, 0.01, 20)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseLineHeight)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseLineHeight)">+</button>
+                    <input id="currentLineHeight" min="0" max="100" type="number" readonly style="background-color: #efefef;">
                 </div>
             </div>
             <div>
