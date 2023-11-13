@@ -74,12 +74,6 @@ body {
     color: var(--font-color);
 }
 
-input {
-    background-color: var(--background-color);
-    color: var(--font-color);
-    border-color: var(--font-color);
-}
-
 @media only screen and (max-aspect-ratio: 0.6/1), (max-width: 600px) {
     .configBottom button {
         font-size: 1rem;
