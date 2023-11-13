@@ -1,73 +1,13 @@
 const MIN_SIZE = 1;
 const MAX_SIZE = 200;
 
-// Checks for font size in local storage
-let savedFontSize = localStorage.getItem('savedFontSize');
+let baniSection = document.getElementById("bani");
+let optionsMenu = document.getElementById("popUp");
 
-let currentFontSize;
-let numberFontSize;
-let baniSection;
-let optionsMenu;
+/*********************** Commons *************************/
 
-baniSection = document.getElementById("bani");
-optionsMenu = document.getElementById("popUp");
-
-let currentColumnWidth = document.getElementById("currentColumnWidth");
-let currentWordSpace = document.getElementById("currentWordSpace");
-
-// Get current font size of bani section
-currentFontSize = window.getComputedStyle(baniSection).getPropertyValue('font-size');
-
-// Number format font size
-numberFontSize = Number.parseFloat(currentFontSize.substring(0, currentFontSize.length - 2));
-setInputValue(numberFontSize, 'currentFontSize');
-
-if (savedFontSize) {
-    changeFontSize(savedFontSize);
-    setInputValue(savedFontSize, 'currentFontSize');
-}
-
-function changeBackgroundColor(value) {
-    document.body.style.backgroundColor = value;
-}
-
-function changeFontColor(value) {
-    document.body.style.color = value;
-}
-
-function increaesDecreaseFontSize(increaseDecreaseValue) {
-    let newNumberFontSize = numberFontSize + increaseDecreaseValue;
-    if (!isBetween(MIN_SIZE, MAX_SIZE, numberFontSize)) {
-        return;
-    }
-    numberFontSize = newNumberFontSize;
-    setInputValue(numberFontSize, 'currentFontSize');
-    baniSection.style.fontSize = numberFontSize + "px";
-    saveFontSizeInStorage(numberFontSize);
-}
-
-// Change font size in input field
 function setInputValue(value, fieldId) {
     document.getElementById(fieldId).value = Number.parseFloat(value).toFixed(1);
-}
-
-function changeFontSize(size) {
-    if (!isBetween(MIN_SIZE, MAX_SIZE, size)) {
-        return;
-    }
-    numberFontSize = Number.parseFloat(size);
-    baniSection.style.fontSize = size + 'px';
-    saveFontSizeInStorage(numberFontSize);
-}
-
-function darkMode(isOn) {
-    if (isOn) {
-        document.body.style.backgroundColor = "#000000"
-        document.body.style.color = "#ffffff";
-        return;
-    }
-    document.body.style.backgroundColor = "#ffffff"
-    document.body.style.color = "#000000";
 }
 
 // Emit multiple events when called continuously
@@ -94,6 +34,68 @@ function extractNumberFromProperty(property) {
     return Number.parseFloat(property.substring(0, property.length - 2));
 }
 
+/*********************** Fonts and text *************************/
+
+// Checks for font size in local storage
+let savedFontSize = localStorage.getItem('savedFontSize');
+
+let currentFontSize;
+let numberFontSize;
+
+// Get current font size of bani section
+currentFontSize = window.getComputedStyle(baniSection).getPropertyValue('font-size');
+
+// Number format font size
+numberFontSize = Number.parseFloat(currentFontSize.substring(0, currentFontSize.length - 2));
+setInputValue(numberFontSize, 'currentFontSize');
+
+if (savedFontSize) {
+    changeFontSize(savedFontSize);
+    setInputValue(savedFontSize, 'currentFontSize');
+}
+
+function increaesDecreaseFontSize(increaseDecreaseValue) {
+    let newNumberFontSize = numberFontSize + increaseDecreaseValue;
+    if (!isBetween(MIN_SIZE, MAX_SIZE, numberFontSize)) {
+        return;
+    }
+    numberFontSize = newNumberFontSize;
+    setInputValue(numberFontSize, 'currentFontSize');
+    baniSection.style.fontSize = numberFontSize + "px";
+    localStorage.setItem('savedFontSize', size);
+}
+
+function changeFontSize(size) {
+    if (!isBetween(MIN_SIZE, MAX_SIZE, size)) {
+        return;
+    }
+    numberFontSize = Number.parseFloat(size);
+    baniSection.style.fontSize = size + 'px';
+    localStorage.setItem('savedFontSize', size);
+}
+
+/*********************** Color themes *************************/
+
+function changeBackgroundColor(value) {
+    document.body.style.backgroundColor = value;
+}
+
+function changeFontColor(value) {
+    document.body.style.color = value;
+}
+
+function darkMode(isOn) {
+    if (isOn) {
+        document.body.style.backgroundColor = "#000000"
+        document.body.style.color = "#ffffff";
+        return;
+    }
+    document.body.style.backgroundColor = "#ffffff"
+    document.body.style.color = "#000000";
+}
+
+/*********************** Popup menu *************************/
+
 function slideNextPrev(direction) {
     let computed = window.getComputedStyle(baniSection);
 
@@ -119,10 +121,6 @@ function changeJustify(isOn) {
     baniSection.style.textAlign = 'left';
 }
 
-function saveFontSizeInStorage(size) {
-    localStorage.setItem('savedFontSize', size);
-}
-
 function openCloseMenu() {
     if (optionsMenu.style.display === '' || optionsMenu.style.display === 'none') {
         optionsMenu.style.display = 'flex';
@@ -131,16 +129,9 @@ function openCloseMenu() {
     }
 }
 
-function changeColumnWidth(size) {
-    if (!isBetween(MIN_SIZE, MAX_SIZE, size)) {
-        return;
-    }
-    baniSection.style.columnWidth = size + 'vw';
-}
+/*********************** Column width *************************/
 
-function changeInput(value, callback) {
-    callback(value);
-}
+let currentColumnWidth = document.getElementById("currentColumnWidth");
 
 function increaesDecreaseColumnWidth(increaseDecreaseValue) {
     let newNumberColumnWidth = Number(currentColumnWidth.value) + increaseDecreaseValue;
@@ -151,6 +142,17 @@ function increaesDecreaseColumnWidth(increaseDecreaseValue) {
     setInputValue(newNumberColumnWidth, 'currentColumnWidth');
     baniSection.style.columnWidth = newNumberColumnWidth + "vw";
 }
+
+function changeColumnWidth(size) {
+    if (!isBetween(MIN_SIZE, MAX_SIZE, size)) {
+        return;
+    }
+    baniSection.style.columnWidth = size + 'vw';
+}
+
+/*********************** Word space *************************/
+
+let currentWordSpace = document.getElementById("currentWordSpace");
 
 currentWordSpace.value = Number.parseFloat(window.getComputedStyle(baniSection).getPropertyValue('word-spacing'));
 

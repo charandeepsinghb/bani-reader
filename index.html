@@ -171,7 +171,7 @@
                             onpointerup="continuousEmitterStop(increaesDecreaseFontSize)" 
                             onpointerleave="continuousEmitterStop(increaesDecreaseFontSize)">+</button>
                     <input id="currentFontSize" min="1" max="200" type="number" 
-                            onchange="changeInput(event.target.value, changeFontSize)">
+                            onchange="changeFontSize(event.target.value)">
                 </div>
             </div>
             <div>
@@ -200,7 +200,7 @@
                             onpointerup="continuousEmitterStop(increaesDecreaseColumnWidth)" 
                             onpointerleave="continuousEmitterStop(increaesDecreaseColumnWidth)">+</button>
                     <input id="currentColumnWidth" min="1" max="100" type="number" value="100" 
-                            onchange="changeInput(event.target.value, changeColumnWidth)">
+                            onchange="changeColumnWidth(event.target.value)">
                 </div>
             </div>
         </div>
