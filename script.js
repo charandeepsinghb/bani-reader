@@ -62,7 +62,7 @@ function increaesDecreaseFontSize(increaseDecreaseValue) {
     numberFontSize = newNumberFontSize;
     setInputValue(numberFontSize, 'currentFontSize');
     baniSection.style.fontSize = numberFontSize + "px";
-    localStorage.setItem('savedFontSize', size);
+    localStorage.setItem('savedFontSize', numberFontSize);
 }
 
 function changeFontSize(size) {
