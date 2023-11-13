@@ -59,6 +59,8 @@ button {
     -webkit-user-select: none;
     user-select: none;
 
+    border: 1px solid;
+
     /* Colors */
     background-color: var(--background-color);
     color: var(--font-color);
