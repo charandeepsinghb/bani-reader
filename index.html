@@ -179,6 +179,10 @@
                 <input type="checkbox" onclick="changeJustify(event.target.checked)">
             </div>
             <div>
+                <label>Seperate</label>
+                <input type="checkbox" onclick="changeSeperate(event.target.checked)">
+            </div>
+            <div>
                 <label>Word space:</label>
                 <div>
                     <button onpointerdown="continuousEmitterStart(increaesDecreaseWordSpace, -0.25, 20)" 
@@ -205,10 +209,10 @@
             <div>
                 <label>Column width:</label>
                 <div>
-                    <button onpointerdown="continuousEmitterStart(increaesDecreaseColumnWidth, -2, 20)" 
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseColumnWidth, -0.5, 20)" 
                             onpointerup="continuousEmitterStop(increaesDecreaseColumnWidth)" 
                             onpointerleave="continuousEmitterStop(increaesDecreaseColumnWidth)">-</button>
-                    <button onpointerdown="continuousEmitterStart(increaesDecreaseColumnWidth, 2, 20)" 
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseColumnWidth, 0.5, 20)" 
                             onpointerup="continuousEmitterStop(increaesDecreaseColumnWidth)" 
                             onpointerleave="continuousEmitterStop(increaesDecreaseColumnWidth)">+</button>
                     <input id="currentColumnWidth" min="1" max="100" type="number" value="100" 

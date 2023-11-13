@@ -186,3 +186,13 @@ function increaesDecreaseLineHeight(increaseDecreaseValue) {
     setInputValue(newNumberLineHeight, 'currentLineHeight');
     baniSection.style.lineHeight = newNumberLineHeight;
 }
+
+/*********************** Seperate line *************************/
+
+function changeSeperate(isOn) {
+    if (isOn) {
+        baniSection.innerHTML = baniSection.innerHTML.replaceAll(/(?!.{0,30}<br>)॥(?!<br>)/g, '॥<br data-mybreak="true">');
+        return;
+    }
+    baniSection.innerHTML = baniSection.innerHTML.replaceAll('॥<br data-mybreak="true">', '॥');
+}
