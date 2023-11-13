@@ -1,7 +1,7 @@
 {
-  "name": "bani-reader",
+  "name": "japji-bani",
   "version": "1.0.0",
-  "description": "Bani Reader",
+  "description": "Japji Bani",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "tool-engines"
+    "url": "japji-bani"
   },
   "author": "Charandeep Singh",
   "license": "ISC",

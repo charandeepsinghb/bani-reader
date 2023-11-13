@@ -1,2 +1,2 @@
-# bani-reader
-Bani reading
+# japji-bani
+Japji Bani
