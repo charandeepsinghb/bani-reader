@@ -1,2 +1,2 @@
-# japji-bani
-Japji Bani
+# japji-sahib-bani
+Japji Sahib Bani
