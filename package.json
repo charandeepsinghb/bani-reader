@@ -1,7 +1,7 @@
 {
-  "name": "japji-bani",
+  "name": "japji-sahib-bani",
   "version": "1.0.0",
-  "description": "Japji Bani",
+  "description": "Japji Sahib Bani",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
