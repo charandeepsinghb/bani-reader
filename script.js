@@ -214,3 +214,15 @@ function changeSeperate(isOn) {
     }
     baniSection.innerHTML = baniSection.innerHTML.replaceAll('॥<br data-mybreak="true">', '॥');
 }
+
+/*********************** Scroll *************************/
+
+function changeScroll(isOn) {
+    if (isOn) {
+        baniSection.style.overflowY = 'scroll';
+        baniSection.style.columnWidth = 'revert';
+        return;
+    }
+    baniSection.style.overflowY = 'hidden';
+    baniSection.style.columnWidth = '100vw';
+}
