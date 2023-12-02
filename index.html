@@ -176,6 +176,18 @@
                 </div>
             </div>
             <div>
+                <label>Font weight:</label>
+                <div>
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseFontWeight, -100, 100)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseFontWeight)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseFontWeight)">-</button>
+                    <button onpointerdown="continuousEmitterStart(increaesDecreaseFontWeight, 100, 100)" 
+                            onpointerup="continuousEmitterStop(increaesDecreaseFontWeight)" 
+                            onpointerleave="continuousEmitterStop(increaesDecreaseFontWeight)">+</button>
+                    <input id="currentFontWeight" min="0" max="1000" type="number" readonly style="background-color: #efefef;">
+                </div>
+            </div>
+            <div>
                 <label>Justify</label>
                 <input type="checkbox" onclick="changeJustify(event.target.checked)">
             </div>

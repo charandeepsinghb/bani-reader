@@ -183,6 +183,21 @@ function increaesDecreaseWordSpace(increaseDecreaseValue) {
     baniSection.style.wordSpacing = newNumberWordSpace + "px";
 }
 
+/*********************** Font weight *************************/
+
+let currentFontWeight = document.getElementById("currentFontWeight");
+
+currentFontWeight.value = Number.parseFloat(window.getComputedStyle(baniSection).getPropertyValue('font-weight'));
+
+function increaesDecreaseFontWeight(increaseDecreaseValue) {
+    let newNumberFontWeight = Number.parseFloat(currentFontWeight.value) + increaseDecreaseValue;
+    if (!isBetween(0, 1000, newNumberFontWeight)) {
+        return;
+    }
+    setInputValue(newNumberFontWeight, 'currentFontWeight');
+    baniSection.style.fontWeight = newNumberFontWeight;
+}
+
 /*********************** Line height *************************/
 
 let currentLineHeight = document.getElementById("currentLineHeight");
