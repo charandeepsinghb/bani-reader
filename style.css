@@ -4,7 +4,7 @@
 }
 
 #bani {
-    height: 85vh;
+    /* height: 85vh; */
     column-width: 100vw;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -18,7 +18,7 @@
 
 /* Botton configuration */
 .configBottom {
-    height: 10vh;
+    /* height: 10vh; */
     display: flex;
     padding: 0 0.5rem;
 }

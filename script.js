@@ -241,3 +241,12 @@ function changeScroll(isOn) {
     baniSection.style.overflowY = 'hidden';
     baniSection.style.columnWidth = '100vw';
 }
+
+/*********************** Set height for bani section *************************/
+
+function setHeightForFixed() {
+    baniSection.style.height = (window.innerHeight * 0.85) + "px";
+    // baniSection.style.width = (window.innerWidth * 0.99) + "px";
+    document.getElementsByClassName("configBottom")[0].style.height = (window.innerHeight * 0.1) + "px"
+}
+setHeightForFixed();
