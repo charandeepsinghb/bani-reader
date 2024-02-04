@@ -242,11 +242,13 @@ function changeScroll(isOn) {
     baniSection.style.columnWidth = '100vw';
 }
 
-/*********************** Set height for bani section *************************/
+/*********************** Set initial height width for bani section *************************/
 
-function setHeightForFixed() {
+function setHeightWidthForFixed() {
     baniSection.style.height = (window.innerHeight * 0.85) + "px";
-    // baniSection.style.width = (window.innerWidth * 0.99) + "px";
-    document.getElementsByClassName("configBottom")[0].style.height = (window.innerHeight * 0.1) + "px"
+    baniSection.style.width = (window.innerWidth * 0.98) + "px";
+    const configBottomElm = document.getElementsByClassName("configBottom")[0];
+    configBottomElm.style.height = (window.innerHeight * 0.1) + "px";
+    configBottomElm.style.marginBottom = (window.innerHeight * 0.1) + "px";
 }
-setHeightForFixed();
+setHeightWidthForFixed();
