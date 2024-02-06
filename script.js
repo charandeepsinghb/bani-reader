@@ -249,6 +249,6 @@ function setHeightWidthForFixed() {
     baniSection.style.width = (window.innerWidth * 0.98) + "px";
     const configBottomElm = document.getElementsByClassName("configBottom")[0];
     configBottomElm.style.height = (window.innerHeight * 0.1) + "px";
-    configBottomElm.style.marginBottom = (window.innerHeight * 0.1) + "px";
+    configBottomElm.style.marginBottom = (window.innerHeight * 0.05) + "px";
 }
 setHeightWidthForFixed();
