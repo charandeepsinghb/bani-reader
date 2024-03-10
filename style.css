@@ -87,6 +87,13 @@ body {
     border-left: 15px solid green;
 }
 
+/* Prevent selection */
+#bani {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
 @media only screen and (max-aspect-ratio: 0.6/1), (max-width: 600px) {
     .configBottom button {
         font-size: 1rem;
