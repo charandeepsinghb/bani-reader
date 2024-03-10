@@ -94,6 +94,27 @@ body {
     user-select: none; /* Standard syntax */
 }
 
+/* Bani rows */
+.seperateLines span {
+    display: block;
+}
+
+datalist {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.alignSlider {
+    width: 90%;
+    margin: 0 8px;
+}
+.alignSliderCon {
+    margin-top: 10px;
+}
+.block {
+    display: block !important;
+}
+
 @media only screen and (max-aspect-ratio: 0.6/1), (max-width: 600px) {
     .configBottom button {
         font-size: 1rem;

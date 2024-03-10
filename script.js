@@ -10,6 +10,14 @@ function setInputValue(value, fieldId) {
     document.getElementById(fieldId).value = Number.parseFloat(value).toFixed(2);
 }
 
+function setCheckedAttribute(value, fieldId) {
+    if (value === "true") {
+        document.getElementById(fieldId).setAttribute("checked", true);
+        return;
+    }
+    document.getElementById(fieldId).removeAttribute("checked");
+}
+
 // Emit multiple events when called continuously
 let emitterInterv;
 function continuousEmitterStart(func, params, time) {
@@ -40,7 +48,7 @@ function extractNumberFromProperty(property) {
 /*********************** Fonts and text *************************/
 
 // Checks for font size in local storage
-let savedFontSize = localStorage.getItem('savedFontSize');
+const savedFontSize = localStorage.getItem('savedFontSize');
 
 let currentFontSize;
 let numberFontSize;
@@ -133,14 +141,6 @@ function slideNextPrev(direction) {
             , 0);
 }
 
-function changeJustify(isOn) {
-    if (isOn) {
-        baniSection.style.textAlign = 'justify';
-        return;
-    }
-    baniSection.style.textAlign = 'left';
-}
-
 function openCloseMenu() {
     if (optionsMenu.style.display === '' || optionsMenu.style.display === 'none') {
         optionsMenu.style.display = 'flex';
@@ -226,10 +226,22 @@ function increaesDecreaseLineHeight(increaseDecreaseValue) {
 
 function changeSeperate(isOn) {
     if (isOn) {
-        baniSection.innerHTML = baniSection.innerHTML.replaceAll(/(?!.{0,30}<br>)॥(?!<br>)/g, '॥<br data-mybreak="true">');
+        baniSection.classList.add('seperateLines');
+        localStorage.setItem('savedSeperate', isOn);
         return;
     }
-    baniSection.innerHTML = baniSection.innerHTML.replaceAll('॥<br data-mybreak="true">', '॥');
+    baniSection.classList.remove('seperateLines');
+    localStorage.setItem('savedSeperate', isOn);
+}
+
+const savedSeperate = localStorage.getItem('savedSeperate');
+if (savedSeperate != null) {
+    if (savedSeperate === "true") {
+        changeSeperate(true);
+    } else {
+        changeSeperate(false);
+    }
+    setCheckedAttribute(savedSeperate, 'seperate');
 }
 
 /*********************** Scroll *************************/
@@ -264,3 +276,29 @@ baniSection.addEventListener("pointerdown", e => {
     // 5 = half of the height of the marker
     marker.style.top = e.y - 5 + "px";
 });
+
+/*********************** Change Alignment *************************/
+
+function changeAlignment(value) {
+    switch (value) {
+        case "1":
+            baniSection.style.textAlign = 'center';
+            break;
+        case "2":
+            baniSection.style.textAlign = 'right';
+            break;
+        case "3":
+            baniSection.style.textAlign = "justify";
+            break;
+        default:
+            baniSection.style.textAlign = 'left';
+            break;
+    }
+    localStorage.setItem('savedAlignment', value);
+}
+
+const savedAlignment = localStorage.getItem('savedAlignment');
+if (savedAlignment) {
+    changeAlignment(savedAlignment);
+    setInputValue(savedAlignment, 'alignSlider');
+}
