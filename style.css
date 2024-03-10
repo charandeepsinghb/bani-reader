@@ -77,6 +77,16 @@ body {
     color: var(--font-color);
 }
 
+/* Marker settings */
+#mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;  
+    border-left: 15px solid green;
+}
+
 @media only screen and (max-aspect-ratio: 0.6/1), (max-width: 600px) {
     .configBottom button {
         font-size: 1rem;

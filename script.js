@@ -19,8 +19,11 @@ function continuousEmitterStart(func, params, time) {
 }
 
 // Stops event emitting when called
-function continuousEmitterStop() {
+function continuousEmitterStop(type) {
     clearInterval(emitterInterv);
+    if (type === 'font') {
+        localStorage.setItem('savedFontSize', numberFontSize);
+    }
 }
 
 function isBetween(first, second, num) {
@@ -62,7 +65,6 @@ function increaesDecreaseFontSize(increaseDecreaseValue) {
     numberFontSize = newNumberFontSize;
     setInputValue(numberFontSize, 'currentFontSize');
     baniSection.style.fontSize = numberFontSize + "px";
-    localStorage.setItem('savedFontSize', numberFontSize);
 }
 
 function changeFontSize(size) {
@@ -252,3 +254,13 @@ function setHeightWidthForFixed() {
     configBottomElm.style.marginBottom = (window.innerHeight * 0.07) + "px";
 }
 setHeightWidthForFixed();
+
+
+/*********************** Add pointer *************************/
+
+const marker = document.getElementById("mark");
+
+baniSection.addEventListener("pointerdown", e => {
+    // 5 = half of the height of the marker
+    marker.style.top = e.y - 5 + "px";
+});
