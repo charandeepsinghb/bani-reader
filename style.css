@@ -1,6 +1,7 @@
 :root {
     --font-color: black;
     --background-color: white;
+    --seperate-height: 10px;
 }
 
 #bani {
@@ -22,11 +23,15 @@
     /* height: 10vh; */
     display: flex;
     padding: 0 0.5rem;
+    justify-content: space-between;
 }
 .configBottom button {
-    width: 33.33%;
+    width: 33%;
     font-size: 1rem;
     font-family: monospace;
+}
+button {
+    border-radius: 5px;
 }
 
 /* Popup division */
@@ -97,6 +102,10 @@ body {
 /* Bani rows */
 .seperateLines span {
     display: block;
+}
+#bani > span{
+    display: block;
+    margin-bottom: var(--seperate-height);
 }
 
 datalist {
