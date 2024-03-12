@@ -1,7 +1,7 @@
 :root {
     --font-color: black;
     --background-color: white;
-    --seperate-height: 10px;
+    --seperate-height: 0.5em;
 }
 
 #bani {
