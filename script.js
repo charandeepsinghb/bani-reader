@@ -259,11 +259,9 @@ function changeScroll(isOn) {
 /*********************** Set initial height width for bani section *************************/
 
 function setHeightWidthForFixed() {
-    baniSection.style.height = (window.innerHeight * 0.85) + "px";
-    // baniSection.style.width = (window.innerWidth * 0.98) + "px";
+    baniSection.style.height = (window.innerHeight * 0.88) + "px";
     const configBottomElm = document.getElementsByClassName("configBottom")[0];
-    configBottomElm.style.height = (window.innerHeight * 0.1) + "px";
-    configBottomElm.style.marginBottom = (window.innerHeight * 0.07) + "px";
+    configBottomElm.style.height = (window.innerHeight * 0.08) + "px";
 }
 setHeightWidthForFixed();
 
@@ -301,4 +299,37 @@ const savedAlignment = localStorage.getItem('savedAlignment');
 if (savedAlignment) {
     changeAlignment(savedAlignment);
     setInputValue(savedAlignment, 'alignSlider');
+}
+
+
+/*********************** Fullscreen *************************/
+
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().then(() => {
+            changeFullscreenIcon(true);
+        }).catch(() => {
+            console.error(`Error attempting to enable fullscreen mode:: ${error.message}`);
+        });
+    } else if (document.exitFullscreen) {
+        document.exitFullscreen().then(() => {
+            changeFullscreenIcon(false);
+        }).catch(() => {
+            console.error(`Error attempting to disable fullscreen mode:: ${error.message}`);
+        });
+    }
+}
+
+document.addEventListener("fullscreenchange", () => {
+    setHeightWidthForFixed();
+});
+
+const fullscreenSpan = document.getElementById("fullscreenIcon");
+
+function changeFullscreenIcon(on) {
+    if (on) {
+        fullscreenSpan.innerHTML = "fullscreen_exit";
+    } else {
+        fullscreenSpan.innerHTML = "fullscreen";
+    }
 }

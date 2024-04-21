@@ -26,9 +26,8 @@
     justify-content: space-between;
 }
 .configBottom button {
-    width: 33%;
+    width: 24%;
     font-size: 1rem;
-    font-family: monospace;
 }
 button {
     border-radius: 5px;
