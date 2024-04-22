@@ -122,6 +122,9 @@ datalist {
 .block {
     display: block !important;
 }
+.verticalAlignMiddle {
+    vertical-align: middle;
+}
 
 @media only screen and (max-aspect-ratio: 0.6/1), (max-width: 600px) {
     .configBottom button {
