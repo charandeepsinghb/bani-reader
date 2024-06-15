@@ -94,6 +94,7 @@ function changeBackgroundColor(value) {
 
 function changeFontColor(value) {
     document.documentElement.style.setProperty('--font-color', value);
+    setSelectedBackgroundColor();
 }
 
 function darkMode(isOn) {
@@ -266,15 +267,6 @@ function setHeightWidthForFixed() {
 setHeightWidthForFixed();
 
 
-/*********************** Add pointer *************************/
-
-const marker = document.getElementById("mark");
-
-baniSection.addEventListener("pointerdown", e => {
-    // 5 = half of the height of the marker
-    marker.style.top = e.y - 5 + "px";
-});
-
 /*********************** Change Alignment *************************/
 
 function changeAlignment(value) {
@@ -320,10 +312,6 @@ function toggleFullScreen() {
     }
 }
 
-document.addEventListener("fullscreenchange", () => {
-    setHeightWidthForFixed();
-});
-
 const fullscreenSpan = document.getElementById("fullscreenIcon");
 
 function changeFullscreenIcon(on) {
@@ -332,4 +320,98 @@ function changeFullscreenIcon(on) {
     } else {
         fullscreenSpan.innerHTML = "fullscreen";
     }
+}
+
+
+/*********************** Left / Right touch *************************/
+
+let leftRightTouch = false;
+
+function leftRightTouchEnable(isOn) {
+    if (isOn) {
+        leftRightTouch = true;
+        
+        return;
+    }
+    
+    leftRightTouch = false;
+}
+
+baniSection.addEventListener("dblclick", (event)=>{
+    if (leftRightTouch) {
+        let half = window.innerWidth / 2;
+        if (event.clientX > half) {
+            slideNextPrev('next');
+        } else {
+            slideNextPrev('prev');
+        }
+    } else {
+
+    }
+});
+
+
+/*********************** Highlight selected line *************************/
+
+const HOLD_TIME = 600;
+
+let pointerTimeout;
+
+function intoViewPointerDown(target) {
+    intoViewPointerUp();
+    pointerTimeout = setTimeout(()=>{
+        screenHold(target);
+    }, HOLD_TIME);
+}
+
+function intoViewPointerUp() {
+    if (pointerTimeout) {
+        clearTimeout(pointerTimeout);
+    }
+}
+
+function screenHold(target) {
+    let selectedLineElement = document.getElementById("selectedLine");
+    // If already selected
+    if (target.parentElement?.parentElement == baniSection) {
+        if (selectedLineElement) {
+            // Remove id and styles
+            selectedLineElement.removeAttribute("id");
+            selectedLineElement.style = '';
+        }
+
+        // Add id to selection
+        target.setAttribute("id", "selectedLine");
+
+        setSelectedBackgroundColor();
+    }
+}
+
+baniSection.addEventListener("pointerdown", (event)=>{
+    intoViewPointerDown(event.target);
+});
+
+baniSection.addEventListener("pointerup", ()=>{
+    intoViewPointerUp();
+});
+baniSection.addEventListener("pointerout", ()=>{
+    intoViewPointerUp();
+});
+
+function setSelectedBackgroundColor() {
+    // Set background color
+    const selectedLineElement = document.getElementById("selectedLine");
+    selectedLineElement.style.backgroundColor = getLineBackgroundColor();
+}
+
+function getLineBackgroundColor() {
+    const fontColor = window.getComputedStyle(document.body).getPropertyValue('--font-color');
+
+    // Only hex color
+    const pattern = /^#([A-Fa-f0-9]{6})$/;
+    if (pattern.test(fontColor)) {
+        return fontColor + '30';
+    }
+
+    return '#00000030';
 }
