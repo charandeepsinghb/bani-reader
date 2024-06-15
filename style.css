@@ -129,6 +129,9 @@ datalist {
 .block {
     display: block !important;
 }
+.verticalAlignMiddle {
+    vertical-align: middle;
+}
 
 /* Text align */
 .text-justify {
