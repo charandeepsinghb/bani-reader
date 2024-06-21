@@ -325,7 +325,7 @@ function changeFullscreenIcon(on) {
 
 /*********************** Left / Right touch *************************/
 
-let leftRightTouch = false;
+let leftRightTouch = true;
 
 function leftRightTouchEnable(isOn) {
     if (isOn) {
@@ -353,7 +353,7 @@ baniSection.addEventListener("dblclick", (event)=>{
 
 /*********************** Highlight selected line *************************/
 
-const HOLD_TIME = 600;
+const HOLD_TIME = 350;
 
 let pointerTimeout;
 
