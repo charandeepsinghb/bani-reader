@@ -1,21 +1,22 @@
 :root {
-    --font-color: #000000;
-    --background-color: #ffffff;
-    --seperate-height: 0.5em;
+  --font-color: #000000;
+  --background-color: #ffffff;
+  --seperate-height: 0.5em;
+  padding-top: 10px;
 }
 
 #bani {
-    /* height: 85vh; */
-    column-width: 100vw;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    padding: 0.5rem;
-    column-gap: 2rem;
-    column-fill: auto;
-    margin: 0;
-    /* margin-top: 10px; */
-    column-rule: 1px solid;
+  /* height: 85vh; */
+  column-width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  column-gap: 2rem;
+  column-fill: auto;
+  margin: 0;
+  /* margin-top: 10px; */
+  column-rule: 1px solid;
 }
 
 .noto-sans-gurmukhi-bani {
@@ -28,128 +29,163 @@
 
 /* Botton configuration */
 .configBottom {
-    /* height: 10vh; */
-    display: flex;
-    padding: 0 0.5rem;
-    justify-content: space-between;
+  /* height: 10vh; */
+  display: flex;
+  padding: 0 0.5rem;
+  justify-content: space-between;
 }
+
 .configBottom button {
-    width: 24%;
-    font-size: 1rem;
+  width: 24%;
+  font-size: 1rem;
 }
+
 button {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 /* Popup division */
 .popD {
-    position: fixed;
-    display: none;
-    flex-direction: column;
-    padding: 0.5rem;
-    top: 0;
-    margin: 0.5rem;
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem;
+  top: 0;
+  margin: 0.5rem;
 
-    background-color: var(--background-color);
-    border: 1px solid var(--font-color);
-    color: var(--font-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--font-color);
+  color: var(--font-color);
 }
 
-.popD > div {
-    display: flex;
-    align-items: center;
-    padding: 0.3rem;
-    padding-right: 1.5rem;
+.popD>div {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem;
 }
 
 .popD label {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 button {
-    border: 1px solid;
+  border: 1px solid;
 
-    /* Colors */
-    background-color: var(--background-color);
-    color: var(--font-color);
-    border-color: var(--font-color);
+  /* Colors */
+  background-color: var(--background-color);
+  color: var(--font-color);
+  border-color: var(--font-color);
 }
 
 .prevent-selection {
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 button:active {
-    background-color: #999999;
+  background-color: #999999;
 }
 
 body {
-    background-color: var(--background-color);
-    color: var(--font-color);
+  background-color: var(--background-color);
+  color: var(--font-color);
 }
 
 
 /* Prevent selection */
 #bani {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
 }
 
 /* Bani rows */
 .seperateLines span {
-    display: block;
-}
-#bani > p {
-    display: block;
-    margin-block-start: 0;
-    margin-block-end: 0;
-
-    margin-bottom: var(--seperate-height);
+  display: block;
 }
 
-#bani > p > #selectedLine {
-    border-radius: 5px;
+#bani>p {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+
+  margin-bottom: var(--seperate-height);
+}
+
+#bani>p>#selectedLine {
+  border-radius: 5px;
 }
 
 datalist {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
+
 .alignSlider {
-    width: 90%;
-    margin: 0 8px;
+  width: 90%;
+  margin: 0 8px;
 }
+
 .alignSliderCon {
-    margin-top: 10px;
+  margin-top: 10px;
 }
+
 .block {
-    display: block !important;
+  display: block !important;
 }
+
 .verticalAlignMiddle {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 /* Text align */
 .text-justify {
-    text-align: justify;
+  text-align: justify;
 }
 
-@media only screen and (max-aspect-ratio: 0.6/1), (max-width: 600px) {
-    .configBottom button {
-        font-size: 1rem;
-    }
-    .popD {
-        font-size: 1rem;
-    }
-    .popD input, .popD button {
-        min-width: 2rem;
-        min-height: 2rem;
-        font-size: 1rem;
-        margin: 0 0.5rem;
-    }
+.popD >.closeButtonAndDark, .closeButtonAndDark > .darkMode {
+  display: flex;
+  align-items: center;
 }
 
+.popD > .closeButtonAndDark {
+  justify-content: space-between;
+}
+
+.popD .closePopDX:hover {
+  background-color: gray;
+  border-radius: 15px;
+  padding: 0.1rem
+}
+
+.popD .closePopDX {
+  display: flex;
+}
+.popD {
+  max-height: 80vh;
+  overflow: scroll;
+}
+
+@media only screen and (max-aspect-ratio: 0.6/1),
+(max-width: 600px) {
+  .configBottom button {
+    font-size: 1rem;
+  }
+
+  .popD {
+    font-size: 1rem;
+  }
+
+  .popD input,
+  .popD button {
+    min-width: 2rem;
+    min-height: 2rem;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+  }
+}
