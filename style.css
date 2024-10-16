@@ -2,7 +2,6 @@
   --font-color: #000000;
   --background-color: #ffffff;
   --seperate-height: 0.5em;
-  padding-top: 10px;
 }
 
 #bani {
@@ -15,8 +14,9 @@
   column-gap: 2rem;
   column-fill: auto;
   margin: 0;
-  /* margin-top: 10px; */
+  margin-top: 20px;
   column-rule: 1px solid;
+  /* padding-top: 20px; */
 }
 
 .noto-sans-gurmukhi-bani {

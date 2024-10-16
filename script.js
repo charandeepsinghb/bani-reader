@@ -260,9 +260,9 @@ function changeScroll(isOn) {
 /*********************** Set initial height width for bani section *************************/
 
 function setHeightWidthForFixed() {
-  baniSection.style.height = (window.innerHeight * 0.85) + "px";
+  baniSection.style.height = (window.innerHeight * 0.9) + "px";
   const configBottomElm = document.getElementsByClassName("configBottom")[0];
-  configBottomElm.style.height = (window.innerHeight * 0.08) + "px";
+  configBottomElm.style.height = (window.innerHeight * 0.1) + "px";
 }
 setHeightWidthForFixed();
 
